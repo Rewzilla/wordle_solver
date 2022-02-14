@@ -25,6 +25,7 @@ void prune_words(struct wordlist *wl, char guess[6], char response[6]) {
 
 		switch (response[i]) {
 
+			case 'b':
 			case 'B':
 				for (j=0; j<wl->size; j++) {
 
@@ -41,6 +42,7 @@ void prune_words(struct wordlist *wl, char guess[6], char response[6]) {
 				}
 				break;
 
+			case 'y':
 			case 'Y':
 				for (j=0; j<wl->size; j++) {
 
@@ -67,6 +69,7 @@ void prune_words(struct wordlist *wl, char guess[6], char response[6]) {
 				}
 				break;
 
+			case 'g':
 			case 'G':
 				for (j=0; j<wl->size; j++) {
 
@@ -296,7 +299,7 @@ int main(int argc, char *argv[]) {
 		printf("RESPONSE: ");
 		scanf(" %5s", response);
 
-		if (strcmp(response, "GGGGG") == 0) {
+		if (strcmp(response, "ggggg") == 0 || strcmp(response, "GGGGG") == 0) {
 			printf("Got it in %d guesses!  The word is '%s'\n", guess, wl->words[0].word);
 			exit(0);
 		}
