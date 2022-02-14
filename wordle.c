@@ -308,6 +308,11 @@ int main(int argc, char *argv[]) {
 		rescore_words(wl);
 		sort_words(wl);
 
+		if (wl->size == 0) {
+			printf("Wordlist has been reduced to 0.  Something is wrong...\n");
+			exit(0);
+		}
+
 		if (wl->size > 20)
 			print_summary(wl, 10);
 		else
